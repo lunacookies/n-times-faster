@@ -19,9 +19,11 @@ struct implementation {
 
 int32_t basic(const uint8_t *input, size_t length);
 int32_t table(const uint8_t *input, size_t length);
+int32_t table_length(const uint8_t *input, size_t length);
 
 static struct implementation implementations[] = {
 	{ .fn = basic, .name = "basic" },
 	{ .fn = table, .name = "table" },
+	{ .fn = table_length, .name = "table_length" },
 	{ 0 },
 };
