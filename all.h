@@ -24,6 +24,7 @@ int32_t table_8(const uint8_t *input, size_t length);
 int32_t table_16(const uint8_t *input, size_t length);
 int32_t neon(const uint8_t *input, size_t length);
 int32_t neon_less_reduce(const uint8_t *input, size_t length);
+int32_t neon_lsb(const uint8_t *input, size_t length);
 
 static struct implementation implementations[] = {
 	{ .fn = basic, .name = "basic" },
@@ -33,5 +34,6 @@ static struct implementation implementations[] = {
 	{ .fn = table_16, .name = "table_16" },
 	{ .fn = neon, .name = "neon" },
 	{ .fn = neon_less_reduce, .name = "neon_less_reduce" },
+	{ .fn = neon_lsb, .name = "neon_lsb" },
 	{ 0 },
 };
