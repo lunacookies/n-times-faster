@@ -106,7 +106,21 @@ main(void)
 	size_t length = 1000000;
 	uint8_t *input = gen_input(length);
 
+	int32_t expected_result = basic(input, length);
 	struct implementation *impl = implementations;
+
+	while (impl->fn != NULL) {
+		int32_t actual_result = impl->fn(input, length);
+		if (actual_result != expected_result) {
+			printf("%s failed: expected %d, got %d.\n", impl->name,
+			        expected_result, actual_result);
+			return 1;
+		}
+		impl++;
+	}
+
+	impl = implementations;
+
 	while (impl->fn != NULL) {
 		run(*impl, input, length);
 		impl++;
