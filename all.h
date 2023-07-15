@@ -27,6 +27,7 @@ int32_t neon_less_reduce(const uint8_t *input, size_t length);
 int32_t neon_lsb(const uint8_t *input, size_t length);
 int32_t eqsub(const uint8_t *input, size_t length);
 int32_t neon_eqsub(const uint8_t *input, size_t length);
+int32_t neon_eqsub_unroll(const uint8_t *input, size_t length);
 
 static struct implementation implementations[] = {
 	{ .fn = basic, .name = "basic" },
@@ -39,5 +40,6 @@ static struct implementation implementations[] = {
 	{ .fn = neon_lsb, .name = "neon_lsb" },
 	{ .fn = eqsub, .name = "eqsub" },
 	{ .fn = neon_eqsub, .name = "neon_eqsub" },
+	{ .fn = neon_eqsub_unroll, .name = "neon_eqsub_unroll" },
 	{ 0 },
 };
