@@ -29,7 +29,7 @@ gen_input(size_t size)
 	assert(size % CHAR_BIT == 0);
 
 	uint8_t *random = malloc(size / CHAR_BIT);
-	uint8_t *input = malloc(size);
+	uint8_t *input = malloc(size + 1);
 
 	arc4random_buf(random, size / CHAR_BIT);
 
@@ -38,7 +38,7 @@ gen_input(size_t size)
 		input[i] = bit == 0 ? 's' : 'p';
 	}
 
-	input[size - 1] = '\0';
+	input[size] = '\0';
 	free(random);
 	return input;
 }
